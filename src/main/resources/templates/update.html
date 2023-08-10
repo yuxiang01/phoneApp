@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>手机详情</title>
+    <style>
+        td {
+            padding: 10px;
+        }
+
+        input[type=text] {
+            border: 0;
+            outline: none;
+            background-color: rgba(0, 0, 0, 0);
+        }
+    </style>
+</head>
+<body>
+<div style="margin: 100px auto;width: 400px;">
+    <form action="/update" method="post">
+        <input type="hidden" name="hsId" th:value="${phone.hsId}">
+        <table width="400">
+            <thead>
+            <tr align="center">
+                <td colspan="2">
+                    <input type="text" name="nameType" th:value="${phone.nameType}">
+                </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>参考报价:</td>
+                <td><input type="text" name="price" th:value="${phone.price}"></td>
+            </tr>
+            <tr>
+                <td>网络模式:</td>
+                <td><input type="text" name="networkMode" th:value="${phone.networkMode}"></td>
+            </tr>
+            <tr>
+                <td>外观设计:</td>
+                <td><input type="text" name="facade" th:value="${phone.facade}"></td>
+            </tr>
+            <tr>
+                <td>触摸屏:</td>
+                <td><input type="text" name="screenSize" th:value="${phone.screenSize}"></td>
+            </tr>
+            <tr align="center">
+                <td colspan="2">
+                    <input type="submit" value="修改">
+                    <a href="/" style="margin-left: 10px">返回</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+</body>
+</html>
