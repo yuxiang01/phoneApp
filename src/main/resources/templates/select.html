@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-1.8.3.min.js"></script>
+    <script>
+        function del(id) {
+            if (confirm("确定删除吗？")) {
+                location.href = "/delete/id=" + id;
+            }
+        }
+
+        $(function () {
+            $.getJSON("/list", function (data) {
+                if (data != null) {
+                    $.each(data, function (i, e) {
+                        let tr = "<tr><td>" + e.nameType
+                            + "</td><td>" + e.price
+                            + "</td><td>" +
+                            "<a href='/update/" + e.hsId + "'>详情</a>$nbsp;$nbsp;$nbsp;" +
+                            "<a href='javascrpit(0)' onclick='del(" + e.hsId + ")'>删除</a></td></tr>";
+                        $("table").append(tr);
+                    })
+                }
+            })
+        })
+    </script>
+    <style>
+        table, tr, td, th {
+            border: 1px solid gray;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <table>
+        <tr>
+            <td align="center" colspan="3" height="40">手机信息</td>
+        </tr>
+        <tr>
+            <th width="200">品牌型号</th>
+            <th width="80">参考报价</th>
+            <th width="100">操作</th>
+        </tr>
+    </table>
+</center>
+</body>
+</html>
